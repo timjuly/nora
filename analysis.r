@@ -30,12 +30,12 @@ meta_analysis <- metagen(
 
 print(summary(meta_analysis))
 # 保存结果
-sink("output/元分析结果.txt")
+sink("元分析结果.txt")
 print(summary(meta_analysis))
 sink() # 恢复控制台输出
 
 # 森林图
-pdf("output/森林图.pdf", width = 11.69, height = 8.27) # A4 大小
+pdf("森林图.pdf", width = 11.69, height = 8.27) # A4 大小
 forest(meta_analysis,
   print.subgroup.labels = TRUE,
   print.tau2 = TRUE,
@@ -49,7 +49,7 @@ meta_analysis$I2
 meta_analysis$Q
 meta_analysis$pval.Q
 # 保存结果
-sink("output/异质性统计量.txt")
+sink("异质性统计量.txt")
 print("$I2")
 meta_analysis$I2
 print("$Q")
@@ -62,12 +62,12 @@ sink() # 恢复控制台输出
 sensitivity_result <- metainf(metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE, studlab = data$Study, data = data, comb.random = TRUE))
 print(sensitivity_result)
 # 保存结果
-sink("output/敏感性分析.txt")
+sink("敏感性分析.txt")
 print(sensitivity_result)
 sink() # 恢复控制台输出
 
 # 绘制漏斗图
-pdf("output/漏斗图.pdf", width = 11.69, height = 8.27) # A4 大小
+pdf("漏斗图.pdf", width = 11.69, height = 8.27) # A4 大小
 funnel(meta::metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE))
 dev.off()
 
@@ -76,7 +76,7 @@ rma_model <- metafor::rma(yi = meta_analysis$TE, sei = meta_analysis$seTE, metho
 # 查看模型结果
 print(rma_model)
 # 保存结果
-sink("output/拟合随机效应模型.txt")
+sink("拟合随机效应模型.txt")
 print(rma_model)
 sink() # 恢复控制台输出
 
@@ -85,7 +85,7 @@ egger_test <- metafor::regtest(rma_model, model = "lm")
 # 输出Egger’s测试结果
 print(egger_test)
 # 保存结果
-sink("output/Egger测试结果.txt")
+sink("Egger测试结果.txt")
 print(egger_test)
 sink() # 恢复控制台输出
 
@@ -93,7 +93,7 @@ sink() # 恢复控制台输出
 trimfill_result <- trimfill(rma_model)
 
 # 绘制调整后的漏斗图
-pdf("output/漏斗图_调整后.pdf", width = 11.69, height = 8.27) # A4 大小
+pdf("漏斗图_调整后.pdf", width = 11.69, height = 8.27) # A4 大小
 funnel(trimfill_result)
 dev.off()
 
@@ -110,12 +110,12 @@ subgroup_meta_analysis <- metagen(
 
 print(subgroup_meta_analysis)
 # 保存结果
-sink("output/元分析结果_亚组.txt")
+sink("元分析结果_亚组.txt")
 print(summary(subgroup_meta_analysis))
 sink() # 恢复控制台输出
 
 # 亚组森林图
-pdf("output/亚组森林图.pdf", width = 11.69, height = 8.27) # A4 大小
+pdf("亚组森林图.pdf", width = 11.69, height = 8.27) # A4 大小
 forest(subgroup_meta_analysis,
   print.subgroup.labels = TRUE,
   print.tau2 = TRUE,

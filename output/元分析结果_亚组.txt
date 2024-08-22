@@ -1,0 +1,50 @@
+                                OR           95%-CI %W(common) %W(random) Stage
+Schneuer et al. (2014)      0.9800 [0.7260; 1.3228]       18.0       15.3 Early
+Flood-Nichols et al. (2015) 1.3600 [0.4784; 3.8666]        1.5        5.1 Early
+Yue et al. (2021)           1.4800 [1.1564; 1.8941]       26.6       16.2   Mid
+Achkar et al. (2015)        2.2300 [1.2942; 3.8424]        5.5       10.8   Mid
+Zhao et al. (2017)          3.1600 [1.7687; 5.6457]        4.8       10.2   Mid
+Arisoy et al. (2016)        3.2700 [1.3201; 8.1002]        2.0        6.2  Late
+Benachi et al. (2020)       1.7500 [0.9542; 3.2095]        4.4        9.8 Early
+Benachi et al. (2020)       2.3200 [1.2437; 4.3279]        4.2        9.6  Late
+Zeng et al. (2020)          1.2800 [1.0260; 1.5969]       33.1       16.7   Mid
+
+Number of studies: k = 9
+
+                         OR           95%-CI    z  p-value
+Common effect model  1.4465 [1.2736; 1.6428] 5.69 < 0.0001
+Random effects model 1.7012 [1.2901; 2.2433] 3.76   0.0002
+
+Quantifying heterogeneity:
+ tau^2 = 0.1068 [0.0139; 0.5412]; tau = 0.3268 [0.1179; 0.7357]
+ I^2 = 64.9% [28.4%; 82.8%]; H = 1.69 [1.18; 2.41]
+
+Test of heterogeneity:
+     Q d.f. p-value
+ 22.78    8  0.0037
+
+Results for subgroups (common effect model):
+                k     OR           95%-CI     Q   I^2
+Stage = Early   3 1.1129 [0.8578; 1.4440]  2.97 32.7%
+Stage = Mid     4 1.5031 [1.2910; 1.7501] 10.36 71.0%
+Stage = Late    2 2.5901 [1.5494; 4.3298]  0.37  0.0%
+
+Test for subgroup differences (common effect model):
+                   Q d.f. p-value
+Between groups  9.08    2  0.0107
+Within groups  13.70    6  0.0331
+
+Results for subgroups (random effects model):
+                k     OR           95%-CI  tau^2    tau
+Stage = Early   3 1.2213 [0.7972; 1.8709] 0.0610 0.2471
+Stage = Mid     4 1.7744 [1.2176; 2.5858] 0.1069 0.3269
+Stage = Late    2 2.5901 [1.5494; 4.3298]      0      0
+
+Test for subgroup differences (random effects model):
+                  Q d.f. p-value
+Between groups 4.94    2  0.0847
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2
+- Q-Profile method for confidence interval of tau^2 and tau

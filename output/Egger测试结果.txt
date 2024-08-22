@@ -1,0 +1,9 @@
+
+Regression Test for Funnel Plot Asymmetry
+
+Model:     weighted regression with multiplicative dispersion
+Predictor: standard error
+
+Test for Funnel Plot Asymmetry: t =  2.3599, df = 7, p = 0.0503
+Limit Estimate (as sei -> 0):   b = -0.0160 (CI: -0.4538, 0.4218)
+

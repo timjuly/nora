@@ -1,0 +1,30 @@
+Influential analysis (common effect model)
+
+                                                      95%-CI  p-value   tau^2
+Omitting Schneuer et al. (2014)      0.4546 [0.3141; 0.5952] < 0.0001  0.0681
+Omitting Flood-Nichols et al. (2015) 0.3701 [0.2419; 0.4983] < 0.0001  0.1188
+Omitting Yue et al. (2021)           0.3608 [0.2123; 0.5094] < 0.0001  0.1369
+Omitting Achkar et al. (2015)        0.3441 [0.2132; 0.4750] < 0.0001  0.1137
+Omitting Zhao et al. (2017)          0.3297 [0.1992; 0.4601] < 0.0001  0.0663
+Omitting Arisoy et al. (2016)        0.3528 [0.2242; 0.4813] < 0.0001  0.0955
+Omitting Benachi et al. (2020)       0.3604 [0.2302; 0.4905] < 0.0001  0.1276
+Omitting Benachi et al. (2020)       0.3486 [0.2186; 0.4786] < 0.0001  0.1110
+Omitting Zeng et al. (2020)          0.4296 [0.2740; 0.5852] < 0.0001  0.1213
+                                                                             
+Pooled estimate                      0.3691 [0.2419; 0.4964] < 0.0001  0.1068
+                                         tau    I^2
+Omitting Schneuer et al. (2014)       0.2610  53.0%
+Omitting Flood-Nichols et al. (2015)  0.3446  69.3%
+Omitting Yue et al. (2021)            0.3700  69.2%
+Omitting Achkar et al. (2015)         0.3372  65.4%
+Omitting Zhao et al. (2017)           0.2574  54.7%
+Omitting Arisoy et al. (2016)         0.3091  64.3%
+Omitting Benachi et al. (2020)        0.3573  68.7%
+Omitting Benachi et al. (2020)        0.3332  65.8%
+Omitting Zeng et al. (2020)           0.3482  66.7%
+                                                   
+Pooled estimate                       0.3268  64.9%
+
+Details on meta-analytical method:
+- Inverse variance method
+- Restricted maximum-likelihood estimator for tau^2

@@ -3,7 +3,10 @@ setwd(system("pwd", intern = T)) # or setwd('~/Documents/Nora')
 
 # 安装依赖
 install.packages("meta", repos = "https://cran.rstudio.com")
+install.packages("metafor", repos = "https://cran.rstudio.com")
+
 library(meta)
+library(metafor)
 
 # 准备数据
 data <- data.frame(
@@ -113,6 +116,19 @@ pdf("漏斗图_调整后_DL.pdf", width = 11.69, height = 8.27) # A4 大小
 funnel(trimfill_result_DL)
 dev.off()
 
+# 进行影响分析
+influence_analysis <- influence(rma_model)
+print(influence_analysis)
+# 保存结果
+sink("影响分析.txt")
+print(influence_analysis)
+sink() # 恢复控制台输出
+
+# 影响图
+pdf("影响图.pdf", width = 11.69, height = 8.27) # A4 大小
+plot(influence_analysis)
+dev.off()
+
 # 进行Egger’s测试
 egger_test <- metafor::regtest(rma_model, model = "lm")
 # 输出Egger’s测试结果
@@ -129,6 +145,11 @@ print(begg_test)
 sink("Begg测试结果.txt")
 print(begg_test)
 sink() # 恢复控制台输出
+
+# 生成Galbraith图
+pdf("Galbraith图.pdf", width = 11.69, height = 8.27) # A4 大小
+galbraith(meta_analysis)
+dev.off()
 
 # 进行 subgroup meta 分析
 subgroup_meta_analysis <- metagen(

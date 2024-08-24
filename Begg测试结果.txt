@@ -1,0 +1,5 @@
+
+Rank Correlation Test for Funnel Plot Asymmetry
+
+Kendall's tau = 0.2778, p = 0.3585
+

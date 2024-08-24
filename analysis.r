@@ -79,7 +79,7 @@ sink() # 恢复控制台输出
 
 # 绘制漏斗图
 pdf("漏斗图.pdf", width = 11.69, height = 8.27) # A4 大小
-funnel(meta::metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE), xlab="OR")
+funnel(meta::metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE), xlab="log(OR)")
 dev.off()
 
 # 拟合随机效应模型

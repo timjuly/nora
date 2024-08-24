@@ -66,9 +66,17 @@ sink("敏感性分析.txt")
 print(sensitivity_result)
 sink() # 恢复控制台输出
 
+# 进行一比一替换分析
+replace_one_sensitivity <- metainf(meta_analysis, method.incr = "replace")
+print(replace_one_sensitivity)
+# 保存结果
+sink("逐项替换灵敏度分析.txt")
+print(replace_one_sensitivity)
+sink() # 恢复控制台输出
+
 # 绘制漏斗图
 pdf("漏斗图.pdf", width = 11.69, height = 8.27) # A4 大小
-funnel(meta::metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE))
+funnel(meta::metagen(TE = meta_analysis$TE, seTE = meta_analysis$seTE), xlab="OR")
 dev.off()
 
 # 拟合随机效应模型
@@ -80,6 +88,31 @@ sink("拟合随机效应模型.txt")
 print(rma_model)
 sink() # 恢复控制台输出
 
+# 应用Trim and Fill方法
+trimfill_result <- trimfill(rma_model)
+
+# 绘制调整后的漏斗图
+pdf("漏斗图_调整后.pdf", width = 11.69, height = 8.27) # A4 大小
+funnel(trimfill_result)
+dev.off()
+
+# 拟合随机效应模型 DerSimonian-Laird (DL)
+rma_model_DL <- metafor::rma(yi = meta_analysis$TE, sei = meta_analysis$seTE, method = "DL")
+# 查看模型结果
+print(rma_model_DL)
+# 保存结果
+sink("拟合随机效应模型_DL.txt")
+print(rma_model_DL)
+sink() # 恢复控制台输出
+
+# 应用Trim and Fill方法
+trimfill_result_DL <- trimfill(rma_model_DL)
+
+# 绘制调整后的漏斗图
+pdf("漏斗图_调整后_DL.pdf", width = 11.69, height = 8.27) # A4 大小
+funnel(trimfill_result_DL)
+dev.off()
+
 # 进行Egger’s测试
 egger_test <- metafor::regtest(rma_model, model = "lm")
 # 输出Egger’s测试结果
@@ -89,13 +122,13 @@ sink("Egger测试结果.txt")
 print(egger_test)
 sink() # 恢复控制台输出
 
-# 应用Trim and Fill方法
-trimfill_result <- trimfill(rma_model)
-
-# 绘制调整后的漏斗图
-pdf("漏斗图_调整后.pdf", width = 11.69, height = 8.27) # A4 大小
-funnel(trimfill_result)
-dev.off()
+# 进行Begg’s 测试
+begg_test <- metafor::ranktest(rma_model)
+# 输出Begg’s测试结果
+print(begg_test)
+sink("Begg测试结果.txt")
+print(begg_test)
+sink() # 恢复控制台输出
 
 # 进行 subgroup meta 分析
 subgroup_meta_analysis <- metagen(
